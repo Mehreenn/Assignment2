@@ -6,7 +6,7 @@ let mongoose = require('mongoose');
 let Business = require('../models/business');
 
 module.exports.displayBusinessList = (req, res, next) => {
-    // Business.find((err, businessList) => {
+    
     Business.find({}).sort({"name":1}).exec((err, businessList) =>{ 
         if(err)
         {
@@ -24,10 +24,6 @@ module.exports.displayBusinessList = (req, res, next) => {
     });
 }
 
-module.exports.displayAddPage = (req, res, next) => {
-    res.render('business/add', {title: 'Add', 
-    displayName: req.user ? req.user.displayName : ''})          
-}
 
 module.exports.processAddPage = (req, res, next) => {
     let newBusiness = Business({
@@ -50,6 +46,12 @@ module.exports.processAddPage = (req, res, next) => {
     });
 
 }
+
+module.exports.displayAddPage = (req, res, next) => {
+    res.render('business/add', {title: 'Add', 
+    displayName: req.user ? req.user.displayName : ''})          
+}
+
 
 module.exports.displayEditPage = (req, res, next) => {
     let id = req.params.id;
