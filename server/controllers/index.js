@@ -27,23 +27,6 @@ module.exports.displayServicesPage = (req, res, next) => {
     res.render('services', {title: 'Services', displayName: req.user ? req.user.displayName : ''});
 }
 
-module.exports.displayLoginPage = (req, res, next) => {
-    //check if user is logged in
-    if(!req.user)
-    {
-        res.render('auth/login', 
-        {
-            title: "Login",
-            messages: req.flash('loginMessage'),
-            displayName: req.user ? req.user.displayName : ''
-        })
-    }
-    else
-    {
-        return res.redirect('/');
-    }
-}
-
 module.exports.processLoginPage = (req, res, next) => {
     passport.authenticate('local',
     (err, user, info) => {
@@ -124,6 +107,23 @@ module.exports.processRegisterPage = (req, res, next) => {
             });
         }
     });
+}
+
+module.exports.displayLoginPage = (req, res, next) => {
+    //check if user is logged in
+    if(!req.user)
+    {
+        res.render('auth/login', 
+        {
+            title: "Login",
+            messages: req.flash('loginMessage'),
+            displayName: req.user ? req.user.displayName : ''
+        })
+    }
+    else
+    {
+        return res.redirect('/');
+    }
 }
 
 module.exports.performLogout = (req, res, next) => {
