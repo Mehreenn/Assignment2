@@ -1,7 +1,6 @@
 let express = require('express');
 let router = express.Router();
 let mongoose = require('mongoose');
-
 let passport = require('passport');
 let businessController = require('../controllers/business');
 
@@ -16,11 +15,8 @@ function requireAuth(req, res, next)
     next();
 }
 
-
-
 //get route for business list page READ operation
 router.get('/', businessController.displayBusinessList);
-
 
 //get route for add page - CREATE operation
 router.get('/add', requireAuth, businessController.displayAddPage);
@@ -28,7 +24,7 @@ router.get('/add', requireAuth, businessController.displayAddPage);
 //post route for processing add page - CREATE operation
 router.post('/add', requireAuth, businessController.processAddPage);
 
-//get route for displayingthe edit page - UPDATE operation
+//get route for displaying the edit page - UPDATE operation
 router.get('/edit/:id', requireAuth, businessController.displayEditPage);
 
 //post route for processing the edit page - UPDATE operation
@@ -38,3 +34,4 @@ router.post('/edit/:id', requireAuth, businessController.processEditPage);
 router.get('/delete/:id', requireAuth, businessController.performDelete);
 
 module.exports = router;
+
