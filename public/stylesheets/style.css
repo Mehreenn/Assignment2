@@ -1,7 +1,7 @@
 /* <!-- FileName: Assignment1
   Author: Mehreen Abdul Rahman
 Student ID: 301169356
-Date: 02-10-2021 --> */
+Date: 23-10-2021 --> */
 /* background styles */
 body {
   background-image: url('/assets/images/bgimage.jpg');
@@ -67,6 +67,8 @@ li a:hover:not(.active) {
   background-color: #111;
 }
 
+
+/* table styles */
 table{
 border-collapse: collapse;
 width: 100%;
@@ -86,6 +88,7 @@ background-color: #2a2e2d00;
 color: white;
 }
 
+/* button styles */
 .button {
   background-color: #505350;
   border: none;
@@ -116,6 +119,7 @@ color: white;
   box-shadow: 0 12px 16px 0 rgba(20, 20, 20, 0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
+/* drop up for update and view */
 .dropbtn {
   background-color: #3498db00;
   color: white;
