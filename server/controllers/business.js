@@ -25,6 +25,12 @@ module.exports.displayBusinessList = (req, res, next) => {
 }
 
 
+module.exports.displayAddPage = (req, res, next) => {
+    res.render('business/add', {title: 'Add', 
+    displayName: req.user ? req.user.displayName : ''})          
+}
+
+
 module.exports.processAddPage = (req, res, next) => {
     let newBusiness = Business({
         "name": req.body.name,
@@ -40,16 +46,11 @@ module.exports.processAddPage = (req, res, next) => {
         }
         else
         {
-            // refresh the book list
+            // refresh the  list
             res.redirect('/business-list');
         }
     });
 
-}
-
-module.exports.displayAddPage = (req, res, next) => {
-    res.render('business/add', {title: 'Add', 
-    displayName: req.user ? req.user.displayName : ''})          
 }
 
 

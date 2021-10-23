@@ -44,7 +44,6 @@
               <td class="text-center"><%= BusinessList[count].description %> </td> -->
               <td class="text-center"><%= BusinessList[count].number %> </td>
               <td class="text-center"> 
-                <% if(typeof displayName == 'string' && displayName) {%>
                 <a href="/business-list/edit/<%= BusinessList[count]._id %>" class="button">
                   Edit
                 </a>
@@ -53,7 +52,7 @@
                 <a href="/business-list/delete/<%= BusinessList[count]._id %>" class="button-danger">
                   Delete
                 </a>
-                <% } %>
+                
               </td>
             </tr>
           <% } %>
