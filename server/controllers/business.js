@@ -2,6 +2,9 @@ let express = require('express');
 let router = express.Router();
 let mongoose = require('mongoose');
 
+let jwt = require('jsonwebtoken');
+
+
 //connect to book model
 let Business = require('../models/business');
 
